@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cuisine-container{
+  scrollbar-width: 0px;
+}
+::-webkit-scrollbar{
+  display: none;
+}

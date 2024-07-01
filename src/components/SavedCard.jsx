@@ -3,10 +3,10 @@ import { useRecipe } from '../context/RecipeContext'
 import { v4 } from 'uuid'
 
 
-const Card = ({recipe}) => {
+const Savedcard = ({recipe}) => {
 
   
-  const{saveRecipe,unsaveRecipe,toggle}=useRecipe()
+  const{savedRecipes,saveRecipe,unsaveRecipe,setPopular,toggle}=useRecipe()
   
   
   
@@ -14,15 +14,15 @@ const Card = ({recipe}) => {
   const toggleSave=()=>{
     if(!recipe.saved){
       saveRecipe({...recipe,saved:true})
-      recipe.saved=true
+      // setPopular()
       
     }
     else{
       unsaveRecipe(recipe,recipe.id)
-      recipe.saved=false
       
     }
       toggle(recipe.id)
+    // recipe['saved']=!isSaved
   }
 
   return (
@@ -41,4 +41,4 @@ const Card = ({recipe}) => {
   )
 }
 
-export default Card;
+export default Savedcard

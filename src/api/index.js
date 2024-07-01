@@ -9,3 +9,24 @@ export const fetchPopular=async()=>{
   const response=await fetch(fetchURL)
   return await response.json()
 }
+export const fetchCuisine=async(name)=>{
+
+  const fetchURL=`${baseURL}&app_id=${app_id}&app_key=${app_key}&cuisineType=${name}`
+  const response=await fetch(fetchURL)
+  return await response.json()
+}
+export const fetchMeal=async(name)=>{
+  const fetchURL=`${baseURL}&app_id=${app_id}&app_key=${app_key}&mealType=${name}`
+  const response=await fetch(fetchURL)
+  return await response.json()
+}
+export const fetchHealth=async(name)=>{
+  const fetchURL=`${baseURL}&app_id=${app_id}&app_key=${app_key}&health=${name}`
+  const response=await fetch(fetchURL)
+  return await response.json()
+}
+export const fetchQuery=async(query)=>{
+  const fetchURL=`${baseURL}&q=${query}&app_id=${app_id}&app_key=${app_key}`
+  const response=await fetch(fetchURL)
+  return await response.json()
+}

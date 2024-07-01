@@ -1,9 +1,9 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-const Search = () => {
+const Health = () => {
   return (
-    <Outlet />
+    <Outlet/>
   )
 }
 
-export default Search
+export default Health

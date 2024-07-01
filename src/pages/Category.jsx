@@ -1,9 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-const Search = () => {
+
+const Category = () => {
   return (
     <Outlet />
   )
 }
 
-export default Search
+export default Category
