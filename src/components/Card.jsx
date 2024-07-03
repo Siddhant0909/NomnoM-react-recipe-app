@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState,Suspense } from 'react'
 import { useRecipe } from '../context/RecipeContext'
+import {Link} from "react-router-dom"
 import { v4 } from 'uuid'
 
 
@@ -26,10 +27,12 @@ const Card = ({recipe}) => {
   }
 
   return (
-    <div className='w-[300px] max-h-[310px] h-full rounded-3xl overflow-hidden flex flex-col  gap-2'>
-      <div className='w-full h-[85%] rounded-3xl object-cover object-center overflow-hidden'>
+    <div className='w-[300px] h-[310px] rounded-3xl overflow-hidden flex flex-col  gap-2'>
+      <Link 
+      to={`/details/${recipe.id}`}
+      className='w-full h-[85%] rounded-3xl object-cover object-center overflow-hidden bg-[#474747b6]'>
         <img className='rounded-3xl h-full w-full object-cover object-center' src={recipe?.recipe?.image} alt={recipe?.recipe?.label} />
-      </div>
+      </Link>
       <div className=' h-[15%] px-2 mb-2 flex items-start gap-4 justify-between overflow-hidden'>
       <p className='font-bold text-ellipsis w-[80%] cursor-default'>{recipe?.recipe?.label}</p>
       <span

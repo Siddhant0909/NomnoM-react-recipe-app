@@ -15,6 +15,8 @@ import Health from './pages/Health.jsx'
 import HealthData from './pages/HealthData.jsx'
 import Search from './pages/Search.jsx'
 import SearchedData from './pages/SearchedData.jsx'
+import Details from './pages/Details.jsx'
+import DetailsData from './pages/DetailsData.jsx'
 
 const router=createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +35,9 @@ const router=createBrowserRouter(
       <Route path='saved' element={<Saved/>}/>
       <Route path='search' element={<Search/>}>
         <Route path=':query' element={<SearchedData/>}/>
+      </Route>
+      <Route path='details' element={<Details/>}>
+        <Route path=':id' element={<DetailsData />}/>
       </Route>
     </Route>
   )

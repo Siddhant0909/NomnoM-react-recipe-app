@@ -1,5 +1,5 @@
 import { createContext,useContext, useState } from "react";
-import { fetchCuisine, fetchHealth, fetchMeal, fetchPopular, fetchQuery } from "../api";
+import { fetchCuisine, fetchDetails, fetchHealth, fetchMeal, fetchPopular, fetchQuery } from "../api";
 import { v4 } from "uuid";
 
 const RecipeContext=createContext(null);
@@ -15,6 +15,7 @@ export const RecipeContextProvider=(({children})=>{
   const[meals,setMeals]=useState([])
   const[health,setHealth]=useState([])
   const[searched,setSearched]=useState([])
+  const[details,setDetails]=useState({})
   
   const[savedRecipes,setSavedRecipes]=useState([])
 
@@ -29,24 +30,35 @@ export const RecipeContextProvider=(({children})=>{
     }
   }
   const fetchCuisineData=async(cuisinename)=>{
-    const response=await fetchCuisine(cuisinename)
-      const data= response.hits.map((res)=>({...res,saved:false,id:v4()})) 
+      setCuisines([])
+      const response=await fetchCuisine(cuisinename)
+      // const recipe_id=
+      const data= response.hits.map((res)=>({...res,saved:false,id:res.recipe.uri.slice(res.recipe.uri.lastIndexOf('_')+1)})) 
       setCuisines(data)
   }
   const fetchMealData=async(mealname)=>{
-    const response=await fetchMeal(mealname)
-      const data= response.hits.map((res)=>({...res,saved:false,id:v4()})) 
+      setMeals([])
+      const response=await fetchMeal(mealname)
+      const data= response.hits.map((res)=>({...res,saved:false,id:res.recipe.uri.slice(res.recipe.uri.lastIndexOf('_')+1)})) 
       setMeals(data)
   }
   const fetchHealthData=async(health)=>{
-    const response=await fetchHealth(health)
-      const data= response.hits.map((res)=>({...res,saved:false,id:v4()})) 
+      setHealth([])
+      const response=await fetchHealth(health)
+      const data= response.hits.map((res)=>({...res,saved:false,id:res.recipe.uri.slice(res.recipe.uri.lastIndexOf('_')+1)})) 
       setHealth(data)
   }
   const fetchSearchedData=async(query)=>{
-    const response=await fetchQuery(query)
-      const data= response.hits.map((res)=>({...res,saved:false,id:v4()})) 
+      setSearched([])
+      const response=await fetchQuery(query)
+      const data= response.hits.map((res)=>({...res,saved:false,id:res.recipe.uri.slice(res.recipe.uri.lastIndexOf('_')+1)})) 
       setSearched(data)
+  }
+  const fetchDetailedData=async(id)=>{
+      setDetails({})
+      const response=await fetchDetails(id)
+      const data= {...response,saved:false,id:response.recipe.uri.slice(response.recipe.uri.lastIndexOf('_')+1)} 
+      setDetails(data)
   }
 
 
@@ -63,7 +75,7 @@ export const RecipeContextProvider=(({children})=>{
   
 
   return(
-    <RecipeContext.Provider value={{popular,fetchPopularData,savedRecipes,saveRecipe,setSavedRecipes,setPopular,unsaveRecipe,toggle,fetchCuisineData,cuisines,setCuisines,meals,fetchMealData,health,fetchHealthData,searched,fetchSearchedData}}>
+    <RecipeContext.Provider value={{popular,fetchPopularData,savedRecipes,saveRecipe,setSavedRecipes,setPopular,unsaveRecipe,toggle,fetchCuisineData,cuisines,setCuisines,meals,fetchMealData,health,fetchHealthData,searched,fetchSearchedData,details,fetchDetailedData}}>
       {children}
     </RecipeContext.Provider>
   )

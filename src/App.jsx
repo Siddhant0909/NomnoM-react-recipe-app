@@ -1,12 +1,13 @@
 import { useEffect } from "react"
 import { fetchPopular } from "./api"
 import Home from "./pages/Home"
-import Navbar from "./components/Navbar"
+import Navbar from "./components/MobileNav"
 import BottomNav from "./components/BottomNav"
 import Recipes from "./pages/Recipes"
 import Saved from "./pages/Saved"
 import {Outlet} from "react-router-dom"
 import { useRecipe } from "./context/RecipeContext"
+import DesktopNav from "./components/DesktopNav"
 
 
 function App() {
@@ -40,9 +41,8 @@ function App() {
   
   return (
     <>
-      <Navbar />
+      <DesktopNav />
       <Outlet/>  
-      <BottomNav />
     </>
   )
 }

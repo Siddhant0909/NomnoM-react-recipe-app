@@ -6,6 +6,7 @@ import { useRecipe } from '../context/RecipeContext'
 const CuisineData = () => {
   const{cuisines,fetchCuisineData}=useRecipe()
   let params=useParams()
+  
   useEffect(()=>{fetchCuisineData(params.cuisineType)},[params.cusineType])
 
   return (
