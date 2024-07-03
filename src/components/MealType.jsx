@@ -9,6 +9,7 @@ const MealType = () => {
     <div className='flex gap-4 overflow-x-scroll mb-4'>
       <Link to='/meals/Breakfast'><CategoryCard cuisine='Breakfast'/></Link>
       <Link to='/meals/brunch'><CategoryCard cuisine='Brunch'/></Link>
+      <Link to='/meals/lunch'><CategoryCard cuisine='Lunch'/></Link>
       <Link to='/meals/snack'><CategoryCard cuisine='Snack'/></Link>
       <Link to='/meals/teatime'><CategoryCard cuisine='Teatime'/></Link>
      <Link to='/meals/dinner'><CategoryCard cuisine='Dinner'/></Link>

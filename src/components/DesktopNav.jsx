@@ -17,8 +17,9 @@ const DesktopNav = () => {
   }
   return (
     <div className='bg-[#313131] text-white h-14 fixed top-0 left-0 right-0 hidden justify-between py-2 px-3 w-full items-center  sm:flex'>
-        {/* Logo */}
-        <Link to='/'>
+      <div className='flex w-full justify-between items-center lg:w-[80%] lg:m-auto'>
+                {/* Logo */}
+                <Link to='/'>
           <h1 className='text-2xl font-bold text-red-600'>NomnoM</h1>
         </Link>
         {/* Search */}
@@ -46,6 +47,7 @@ className={({isActive})=>`font-semibold ${isActive?'text-red-700':'text-white'}`
             className={({isActive})=>`font-semibold ${isActive?'text-red-700':'text-white'}`}
           to='/saved'><h3>Saved</h3></NavLink>
         </div>
+      </div>
 
     </div>
   )

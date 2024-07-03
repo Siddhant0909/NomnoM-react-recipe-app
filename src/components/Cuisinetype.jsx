@@ -22,6 +22,9 @@ const Cuisinetype = () => {
       <NavLink to={'/category/Chinese'}>
         <CategoryCard cuisine='Chinese'/>
       </NavLink>
+      <NavLink to={'/category/Greek'}>
+        <CategoryCard cuisine='Greek'/>
+      </NavLink>
     </div>
     </>
   )

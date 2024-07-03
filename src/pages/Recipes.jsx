@@ -9,7 +9,7 @@ const Recipes = () => {
   return (
     <>
       <MobileNav />
-      <div className='h-fit mt-14 bg-[#212121] p-4 pb-14'>
+      <div className='h-fit mt-14 bg-[#212121] p-4 pb-14 '>
         <Cuisinetype/>
         <MealType />
         <HealthLabel />
