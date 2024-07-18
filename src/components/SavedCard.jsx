@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useRecipe } from "../context/RecipeContext";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa6";
 
 const Savedcard = ({ recipe }) => {
   const { saveRecipe, unsaveRecipe, toggle } = useRecipe();
@@ -32,12 +33,8 @@ const Savedcard = ({ recipe }) => {
         <p className="font-bold text-ellipsis w-[80%] cursor-default">
           {recipe?.recipe?.label}
         </p>
-        <span className="text-lg cursor-pointer" onClick={toggleSave}>
-          {!recipe.saved ? (
-            <i className="fa-regular fa-bookmark"></i>
-          ) : (
-            <i className="fa-solid fa-bookmark"></i>
-          )}
+        <span className="pt-1 text-lg cursor-pointer" onClick={toggleSave}>
+          {!recipe.saved ? <FaRegBookmark /> : <FaBookmark />}
         </span>
       </div>
     </div>
