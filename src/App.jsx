@@ -19,13 +19,13 @@ function App() {
   }, [savedRecipes]);
 
   useEffect(() => {
-    const recipe = JSON.parse(localStorage.getItem("popular"));
+    const recipe = JSON.parse(sessionStorage.getItem("popular"));
     if (recipe && recipe.length > 0) {
       setPopular(recipe);
     }
   }, []);
   useEffect(() => {
-    localStorage.setItem("popular", JSON.stringify(popular));
+    sessionStorage.setItem("popular", JSON.stringify(popular));
   }, [popular]);
 
   return (
