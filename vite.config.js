@@ -11,6 +11,9 @@ export default defineConfig({
       manifest: {
         name: "Nomnom",
         short_name: "Nomnom",
+        description: "recipe finder app",
+        theme_color: "#ffffff",
+        background_color: "#ffffff",
         display: "standalone",
         start_url: "/",
         icons: [
